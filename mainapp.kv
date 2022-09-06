@@ -1,0 +1,81 @@
+#:import C kivy.utils.get_color_from_hex
+<LoginScreen>:
+
+    GridLayout:
+        rows: 2
+        canvas.before:
+            Color:
+                rgba: .263, .173, .463, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        GridLayout:
+
+            rows: 3
+            padding: 50, 20
+            spacing: 20, 20
+            Label:
+                text: "Welcome To The Camera App"
+                font_size: 36
+                font_family: "Helvetica"
+            RelativeLayout:
+                TextInput:
+                    id: username
+                    hint_text: "Enter your username"
+                    multiline: False
+                    size_hint: None, None
+                    pos_hint: {'center_x': 0.5, "center_y": 0.9}
+                    size: "500dp", 30
+                TextInput:
+                    id: password
+                    hint_text: "Enter your password"
+                    multiline: False
+                    password: True
+                    size_hint: None, None
+                    pos_hint: {'center_x': 0.5, "center_y": 0.4}
+                    size: "500dp", 30
+            RelativeLayout:
+                Button:
+                    background_color: 30/255, 15/255, 85/255, 1
+                    text: "Login"
+                    pos_hint: {'center_x': 0.5, "center_y": 0.4}
+                    size_hint: 0.3, 0.5
+                    on_press: root.tomainscreen()
+
+        GridLayout:
+            cols: 2
+            padding: 10, 10
+            spacing: 10, 0
+            size_hint: 0.2, 0.2
+            RelativeLayout:
+                Button:
+                    text: "Forgot Password"
+                    background_color: 9, 1, 1, 0
+                    size_hint: 0.3, 0.2
+                    pos_hint: {'center_x': 0.2, "center_y": 0.4}
+                Button:
+                    text: "Sign Up"
+                    background_color: 1, 1, 1, 0 # Set my percentage
+                    size_hint: 0.3, 0.2
+                    pos_hint: {'center_x': 0.8, "center_y": 0.4}
+
+
+
+<MainScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        Button:
+            text: "Logout"
+            on_press: root.toMain()
+        Label:
+            text: "Rasheed is great"
+
+
+<RootWidget>
+    LoginScreen:
+        name: "Login_screen"
+    MainScreen:
+        name: "Main_screen"
+
+
+
